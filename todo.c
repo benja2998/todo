@@ -4,16 +4,16 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
+//Clears the terminal or console screen.
 void clear_console(void) {
     printf("\e[1;1H\e[2J");
 }
 
+//Entry point for program.
 int main(void) {
-    //Initial variables
     int exists;
     int status;
 
-    //Check if db exists
     struct stat buf;
     exists = stat("db", &buf);
     if (exists == -1) {
@@ -25,7 +25,6 @@ int main(void) {
 
     while (1) {
         clear_console();
-        //Get user input for option
         printf(
                 "options\n"
                 "-------\n"
@@ -39,11 +38,9 @@ int main(void) {
 
         char opt[4];
         if (fgets(opt, 4, stdin) == NULL) {
-            //Fail!
             return EXIT_FAILURE;
         }
 
-        //Handle user option
         switch (atoi(opt)) {
             case 1:
                 printf("\nenter todo name and press enter: ");
@@ -92,6 +89,5 @@ int main(void) {
         }
     }
 
-    //Success! (this will never be reached)
     return EXIT_SUCCESS;
 }
