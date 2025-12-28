@@ -1,6 +1,6 @@
 # todo
 
-A minimal todo app in only 97 lines of POSIX C.
+A minimal todo app in less than 100 lines of POSIX C.
 
 ## Getting started
 
